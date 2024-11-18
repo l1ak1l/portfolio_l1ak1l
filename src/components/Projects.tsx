@@ -10,29 +10,31 @@ interface ProjectProps {
   description: string;
 }
 
+
 const projects = [
   {
-    title: 'AI Image Generator',
-    description: 'A deep learning model that generates unique images based on text prompts.',
+    title: 'Adaptive RAG System for AI Agents',
+    description: 'A Retrieval-Augmented Generation (RAG) system designed to dynamically adapt to user inputs, enhancing AI agents with real-time contextual knowledge.',
   },
   {
-    title: 'Sentiment Analysis Tool',
-    description: 'An NLP-based application that analyzes the sentiment of text inputs.',
+    title: 'Corrective RAG System for AI Agents',
+    description: 'A RAG system focused on correcting errors and improving the accuracy of responses in AI agents by integrating feedback loops and refined retrieval methods.',
   },
   {
-    title: 'Predictive Maintenance System',
-    description: 'A machine learning model that predicts equipment failures before they occur.',
+    title: 'Full-Stack Real Estate Platform in MERN Stack',
+    description: 'A comprehensive real estate platform built using the MERN stack, featuring property listings, user authentication, and dynamic search functionalities.',
   },
-]
+];
+
 
 const ProjectCard = ({ title, description }: ProjectProps) => (
   <motion.div
-    className="bg-white/5 backdrop-blur-lg rounded-3xl p-6 m-4 border border-purple-500/20"
+    className="bg-white/5 backdrop-blur-lg rounded-3xl p-6 m-4 borderborder-white/10"
     whileHover={{ scale: 1.05 }}
     transition={{ duration: 0.3 }}
   >
     <h3 className="text-2xl font-bold mb-4">{title}</h3>
-    <p className="text-purple-300">{description}</p>
+    <p className="text-white-300">{description}</p>
   </motion.div>
 )
 

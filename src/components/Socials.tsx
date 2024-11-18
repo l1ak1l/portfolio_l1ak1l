@@ -1,12 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaLinkedin, FaTwitter, FaTelegram } from 'react-icons/fa'
+import { FaLinkedin, FaTwitter, FaTelegram, FaGithub } from 'react-icons/fa'
 
 const socialLinks = [
-  { icon: FaLinkedin, url: 'https://www.linkedin.com/in/yourusername' },
-  { icon: FaTwitter, url: 'https://twitter.com/yourusername' },
-  { icon: FaTelegram, url: 'https://t.me/yourusername' },
+  { icon: FaLinkedin, url: 'https://www.linkedin.com/in/ammar-ali-khan-872191249' },
+  { icon: FaTwitter, url: 'https://x.com/L1AK1l' },
+  { icon: FaTelegram, url: 'https://t.me/I1AK1I' },
+  { icon: FaGithub, url: 'https://github.com/l1ak1l' }, // Replace 'yourusername' with your actual GitHub username
 ]
 
 const Socials = () => {
@@ -21,7 +22,7 @@ const Socials = () => {
     >
       <div className="max-w-3xl mx-auto text-center">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-10"
+          className="text-3xl md:text-4xl font-bold mb-10 text-white"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -42,9 +43,10 @@ const Socials = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-4xl hover:text-purple-300 transition-colors"
+              className="text-4xl text-white hover:text-purple-300 transition-colors"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
+              aria-label={`Visit my ${social.icon.name.replace('Fa', '')}`}
             >
               <social.icon />
             </motion.a>

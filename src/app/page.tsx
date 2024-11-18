@@ -1,30 +1,30 @@
-'use client'
-
-import { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import Navbar from '@/components/Navbar'
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Projects from '@/components/Projects'
+import Hero from '../components/Hero'
+import About from '../components/About'
+import Projects from '../components/Projects'
+import Education from '../components/Education'
+import Experience from '../components/Experience'
 import Socials from '@/components/Socials'
-import EducationExperience from '@/components/Education-experiance'
+
 export default function Home() {
-  const controls = useAnimation()
-
-  useEffect(() => {
-    controls.start('visible')
-  }, [controls])
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-teal-900 text-white">
-      <Navbar />
-      <main className="container mx-auto px-4">
-        <Hero />
+    <main>
+      <Hero />
+      <section id="about">
         <About />
-        <EducationExperience />
+      </section>
+      
+      <section id="experience">
+        <Experience />
+      </section>
+      <section id="education">
+        <Education />
+      </section>
+      <section id="projects">
         <Projects />
-        <Socials />
-      </main>
-    </div>
+      </section>
+      <section id="socials">
+        <Socials  />
+      </section>
+    </main>
   )
 }

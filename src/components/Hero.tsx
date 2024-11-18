@@ -40,7 +40,7 @@ const Hero = () => {
           </p>
           <div className="flex justify-center space-x-4 mt-6">
             <a
-              href="https://t.me/yourusername"
+              href="https://t.me/I1AK1I"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/10 backdrop-blur-md text-white font-bold py-3 px-6 rounded-full border border-white/20 hover:bg-white/20 transition duration-300 shadow-lg"
