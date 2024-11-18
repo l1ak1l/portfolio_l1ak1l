@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { FiMenu, FiX } from 'react-icons/fi'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,7 @@ const Navbar = () => {
     const section = document.getElementById(sectionId)
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' })
+      setIsMenuOpen(false)
     }
   }
 
@@ -40,25 +43,44 @@ const Navbar = () => {
         >
           l1AK1l
         </motion.h1>
-        <ul className="flex space-x-6">
+        <div className="hidden md:flex space-x-6">
           {['projects', 'experience', 'education', 'about'].map((item) => (
-            <li key={item} className="relative">
-              <button
-                onClick={() => scrollToSection(item)}
-                className="cursor-pointer text-white hover:text-purple-300 transition-colors py-2"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </button>
-              <motion.div
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-500"
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </li>
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className="text-white hover:text-purple-300 transition-colors py-2 relative group"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+            </button>
           ))}
-        </ul>
+        </div>
+        <button
+          className="md:hidden text-white focus:outline-none"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        </button>
       </div>
+      {isMenuOpen && (
+        <motion.div
+          className="md:hidden bg-black/90 backdrop-blur-md"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+        >
+          {['projects', 'experience', 'education', 'about'].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className="block w-full text-left text-white hover:text-purple-300 transition-colors py-3 px-4"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </button>
+          ))}
+        </motion.div>
+      )}
     </motion.nav>
   )
 }
