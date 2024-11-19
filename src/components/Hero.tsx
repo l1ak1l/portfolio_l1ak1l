@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Typed from 'typed.js'
 import { Parallax } from 'react-scroll-parallax'
+import { motion } from 'framer-motion'
 
 const Hero = () => {
   useEffect(() => {
@@ -26,19 +27,30 @@ const Hero = () => {
   }, [])
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col items-center justify-center p-4">
+    <section id="hero" className="min-h-screen flex flex-col items-center justify-center pb-32 p-4 relative overflow-hidden">
+      
       <Parallax speed={-5}>
-        <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+        <motion.div 
+          className="text-center z-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl text-white/90 md:text-6xl font-bold mb-4">
             <span id="typed-text"></span>
           </h2>
           <p 
             id="subtext" 
-            className="text-xl md:text-2xl text-purple-300 mb-8 opacity-0 transition-opacity duration-1000"
+            className="text-xl md:text-2xl text-purple-200 mb-8 opacity-0 transition-opacity duration-1000"
           >
             Exploring the frontiers of AI and software development
           </p>
-          <div className="flex justify-center space-x-4 mt-6">
+          <motion.div 
+            className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
             <a
               href="https://t.me/I1AK1I"
               target="_blank"
@@ -54,8 +66,8 @@ const Hero = () => {
             >
               Download my resume
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </Parallax>
     </section>
   )

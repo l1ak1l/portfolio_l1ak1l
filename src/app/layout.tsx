@@ -1,9 +1,10 @@
+
 'use client'
 
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Navbar from '../components/Navbar'
 import SmoothScroll from '../components/SmoothScroll'
+import Navbar from '@/components/Navbar'
 import LoadingScreen from '../components/LoadingScreen'
 import { useState, useEffect } from 'react'
 
@@ -25,29 +26,32 @@ export default function RootLayout({
   }, [])
 
   return (
-    <html lang="en">
+    <html lang="en" className="min-h-screen">
       <head>
         <title>l1AK1l's Portfolio</title>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-          rel="preload"
-          href="/fonts/inter-var-latin.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </head>
-      <body className={`${inter.className} overflow-x-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800`}>
-        {isLoading ? (
-          <LoadingScreen />
-        ) : (
-          <>
+      <body 
+        className={`${inter.className} min-h-screen overflow-x-hidden`}
+        style={{
+          background: 'linear-gradient(to bottom right, rgb(17, 24, 39), rgb(0, 0, 0), rgb(17, 24, 39))',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 z-0 bg-black/40" />
+        <div className="relative z-10">
+          {isLoading ? (
+            <LoadingScreen />
+          ) : (
+            <>
            <Navbar />
             <SmoothScroll>{children}</SmoothScroll>
           </>
-        )}
+          )}
+        </div>
       </body>
     </html>
   )
 }
+

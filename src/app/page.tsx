@@ -7,12 +7,11 @@ import Socials from '@/components/Socials'
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-purple-900 via-black to-gray-900">
       <Hero />
       <section id="about">
         <About />
       </section>
-      
       <section id="experience">
         <Experience />
       </section>
@@ -23,7 +22,7 @@ export default function Home() {
         <Projects />
       </section>
       <section id="socials">
-        <Socials  />
+        <Socials />
       </section>
     </main>
   )
